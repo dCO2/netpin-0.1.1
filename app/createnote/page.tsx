@@ -11,19 +11,17 @@ export default function CreateNote(){
   return(
     <div className="flex flex-col mx-2 mt-4 p-2 text-lg border shadow rounded-md md:mt-4 md:m-auto md:max-w-screen-md">
       <TextArea
-        placeholder="Title..."
+        placeholder="title..."
         bordered={false}
-        style={{fontSize: 25}}
-        className="px-0"
+        className="px-0 text-base md:text-lg"
         autoSize
       />
       <TextArea
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        placeholder="Take a Note..."
+        placeholder="take a note..."
         bordered={false}
-        style={{fontSize: 25}}
-        className="px-0"
+        className="px-0 text-base md:text-lg"
         autoSize={{ minRows: 5, maxRows: 15 }}
       />
       <Button

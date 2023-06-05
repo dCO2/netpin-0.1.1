@@ -6,7 +6,7 @@ export default function CreateUser(){
       <input
         className="w-full border rounded-md px-3 py-2.5 pr-16 text-sm ring-blue-400 focus:outline-none focus:ring-1"
         type="text"
-        placeholder="Choose username by typing here..."
+        placeholder="choose username by typing here..."
       />
       <button
         type="submit"
