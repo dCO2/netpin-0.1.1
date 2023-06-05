@@ -1,6 +1,7 @@
 import Header from "./header/page"
 import Instruction from "./instruction/page"
 import CreateUser from "./createuser/page"
+import CreateNote from "./createnote/page"
 
 export default function Home() {
   return (
@@ -8,9 +9,9 @@ export default function Home() {
       <Header/>
       <Instruction/>
       <CreateUser/>
+      <CreateNote/>
     </div>
 
-    // <CreateNote/>
     // <ListOfNotes/>
   )
 }
