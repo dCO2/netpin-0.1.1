@@ -2,7 +2,7 @@
 
 export default function CreateUser(){
   return(
-    <form className="relative mt-4 mx-6 md:mt-14 md:m-auto md:max-w-screen-sm">
+    <form className="relative mt-4 mx-4 md:mt-14 md:m-auto md:max-w-screen-sm">
       <input
         className="w-full border rounded-md px-3 py-2.5 pr-16 text-sm ring-blue-400 focus:outline-none focus:ring-1"
         type="text"

@@ -9,7 +9,7 @@ export default function CreateNote(){
   const [value, setValue] = useState('');
   const [username, setUsername] = useState('');
   return(
-    <div className="flex flex-col mx-2 mt-4 p-2 text-lg border shadow rounded-md md:mt-4 md:m-auto md:max-w-screen-md">
+    <div className="flex flex-col mx-4 mt-4 p-2 text-lg border shadow rounded-md md:mt-4 md:m-auto md:max-w-screen-md">
       <TextArea
         placeholder="title..."
         bordered={false}
