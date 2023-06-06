@@ -4,7 +4,7 @@ import ButtonGroup from './ButtonGroup';
 import { Dispatch, SetStateAction } from "react";
 
 interface Props {
-  setInstructnEnabled: Dispatch<SetStateAction<boolean>>;
+  setInstructnEnabled?: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function Header({ setInstructnEnabled }: Props) {
