@@ -1,6 +1,6 @@
 'use client';
 import Info from "./Info";
-import { Fragment } from 'react'
+import { Fragment, Dispatch, SetStateAction } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { Bars3Icon } from '@heroicons/react/20/solid'
 
@@ -8,11 +8,13 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-interface Props {
-  setInstructnEnabled: (callback: (c: boolean) => boolean) => void;
+interface PageProps {
+  params: {
+    setInstructnEnabled: Dispatch<SetStateAction<boolean>>;
+  }
 }
 
-export default function ButtonGroup({ setInstructnEnabled }: Props) {
+export default function ButtonGroup({ params }: PageProps) {
 
   return (
     <Menu as="div" className="items-center ml-auto flex-end relative inline-block text-left">
@@ -40,7 +42,7 @@ export default function ButtonGroup({ setInstructnEnabled }: Props) {
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block py-2 text-sm'
                   )}
-                  onClick={() => setInstructnEnabled((c) => !c)}
+                  onClick={() => params.setInstructnEnabled((c) => !c)}
                 >
                   <Info/>
                 </button>

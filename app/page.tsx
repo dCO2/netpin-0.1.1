@@ -9,16 +9,15 @@ import DisplayUser from './displayuser/page';
 export default function Home() {
   const [InstructnEnabled, setInstructnEnabled] = useState(true);
   const [NoteEnabled, setNoteEnabled] = useState(true);
-  // const [content, setContent] = useState('');
   const [username, setUsername] = useState("");
 
   return (
     <div>
-      <Header setInstructnEnabled={setInstructnEnabled} />
+      <Header params={{setInstructnEnabled}} />
       {InstructnEnabled && <Instruction />}
-      {NoteEnabled && <CreateUser username={username} setNoteEnabled={setNoteEnabled} setUsername={setUsername}/>}
-      {(!NoteEnabled) && <DisplayUser username={username} />}
-      <CreateNote NoteEnabled={NoteEnabled} />
+      {NoteEnabled && <CreateUser params={{setNoteEnabled: setNoteEnabled, setUsername: setUsername, username: username}}/>}
+      {(!NoteEnabled) && <DisplayUser params={{username}} />}
+      <CreateNote params={{NoteEnabled}} />
     </div>
 
     // <ListOfNotes/>

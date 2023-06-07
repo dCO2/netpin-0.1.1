@@ -5,11 +5,11 @@ import { CloudArrowDownIcon } from "@heroicons/react/24/outline";
 
 const {TextArea} = Input;
 
-interface Props {
-  NoteEnabled: boolean;
+interface PageProps {
+  params: { NoteEnabled: boolean; };
 }
 
-export default function CreateNote({NoteEnabled}: Props){
+export default function CreateNote({params}: PageProps){
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   return(
@@ -20,7 +20,7 @@ export default function CreateNote({NoteEnabled}: Props){
         placeholder="title..."
         bordered={false}
         className="px-0 text-base md:text-lg"
-        disabled={NoteEnabled}
+        disabled={params.NoteEnabled}
         autoSize
       />
       <TextArea
@@ -29,13 +29,13 @@ export default function CreateNote({NoteEnabled}: Props){
         placeholder="take a note..."
         bordered={false}
         className="px-0 text-base md:text-lg"
-        disabled={NoteEnabled}
+        disabled={params.NoteEnabled}
         autoSize={{ minRows: 5, maxRows: 15 }}
       />
       <Button
         className="p-1 h-10 w-10 self-end"
         type="text"
-        disabled={NoteEnabled}
+        disabled={params.NoteEnabled}
       >
         <CloudArrowDownIcon className="m-1 h-6 w-6 inline-block"/>
       </Button>
