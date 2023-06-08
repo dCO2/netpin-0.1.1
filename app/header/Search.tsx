@@ -4,7 +4,13 @@ import { Input } from 'antd';
 
 const { Search } = Input;
 
-export default function Search_() {
+interface PageProps{
+  params: {
+    SearchEnabled: boolean;
+  }
+}
+
+export default function Search_({params}: PageProps) {
   const [query, setQuery] = useState("");
 
   async function onSearch() {
@@ -17,6 +23,7 @@ export default function Search_() {
       placeholder="Search Notes..."
       onSearch={onSearch}
       className="ml-auto w-1/2"
+      disabled={!params.SearchEnabled}
     />
   );
 }

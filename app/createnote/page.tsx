@@ -2,11 +2,16 @@
 import {Input, Button} from 'antd';
 import React, {useState} from 'react';
 import { CloudArrowDownIcon } from "@heroicons/react/24/outline";
+import { Dispatch, SetStateAction } from "react";
+
 
 const {TextArea} = Input;
 
 interface PageProps {
-  params: { NoteEnabled: boolean; };
+  params: { 
+    toggleSearchEnabled: Dispatch<SetStateAction<boolean>>;
+    NoteEnabled: boolean;
+  };
 }
 
 export default function CreateNote({params}: PageProps){
