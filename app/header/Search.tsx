@@ -20,7 +20,7 @@ export default function Search_({params}: PageProps) {
 
   return (
     <Search
-      placeholder="Search Notes..."
+      placeholder="search notes..."
       onSearch={onSearch}
       className="ml-auto w-1/2"
       disabled={!params.SearchEnabled}
