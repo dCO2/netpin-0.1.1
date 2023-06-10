@@ -48,7 +48,6 @@ export default function CreateUser({params}: PageProps){
       if(uData === null){
         setError(true);
       }else{
-        // console.log(uData)
         params.setUserID(uData.uid);
         params.setUserNotes(uData.notes);
         params.setNoteEnabled((c) => !c);
@@ -62,7 +61,7 @@ export default function CreateUser({params}: PageProps){
       <input
         className="w-full border rounded-md px-3 py-2.5 pr-16 text-sm ring-blue-400 focus:outline-none focus:ring-1"
         type="text"
-        placeholder="login/choose a username by typing here..."
+        placeholder="login or choose a username..."
         value={params.username}
         onChange={(e) => { params.setUsername(e.target.value);
                             if((checkedFirstUser !== checkedExistingUser)&&
