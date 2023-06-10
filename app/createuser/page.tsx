@@ -8,8 +8,8 @@ interface PageProps {
     setUsername: Dispatch<SetStateAction<string>>;
     setUserID: Dispatch<SetStateAction<number>>;
     username: string;
-    userNotes: object;
-    setUserNotes: Dispatch<SetStateAction<object>>;
+    userNotes: Array<object>;
+    setUserNotes: Dispatch<SetStateAction<Array<object>>>;
    };
 }
 
