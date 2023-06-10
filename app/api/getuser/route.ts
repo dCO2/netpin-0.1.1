@@ -14,7 +14,5 @@ export async function POST(req: Request) {
     },
   });
 
-  //console.log(savedUser);
-
   return new Response(JSON.stringify(savedUser));
 }
