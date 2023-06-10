@@ -1,29 +1,80 @@
 'use client'; 
-import {Button} from 'antd';
-import { Dispatch, SetStateAction } from "react";
+import {Button, Checkbox} from 'antd';
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface PageProps {
   params: { 
     setNoteEnabled: Dispatch<SetStateAction<boolean>>;
     setUsername: Dispatch<SetStateAction<string>>;
+    setUserID: Dispatch<SetStateAction<number>>;
     username: string;
+    userNotes: object;
+    setUserNotes: Dispatch<SetStateAction<object>>;
    };
 }
 
 export default function CreateUser({params}: PageProps){
+  const [submitDisabled, toggleDisableSubmit] = useState(true);
+  const [checkedFirstUser, toggleFirstUser] = useState(false);
+  const [checkedExistingUser, toggleExistingUser] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handlerOnCreateUser = async () => {
+
+    if(checkedFirstUser === true){
+      const response = await fetch('/api/createuser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({data:{name: params.username}}),
+      });
+
+      const uData = await response.json()
+      params.setUserID(uData.uid);
+    
+      params.setNoteEnabled((c) => !c);
+    }else if(checkedExistingUser === true){
+      const response = await fetch('/api/getuser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({data:{name: params.username}}),
+      });
+
+      const uData = await response.json()
+
+      if(uData === null){
+        setError(true);
+      }else{
+        // console.log(uData)
+        params.setUserID(uData.uid);
+        params.setUserNotes(uData.notes);
+        params.setNoteEnabled((c) => !c);
+      }
+    }
+  }
+
   return(
+    <>
     <div className="relative mt-4 mx-4 md:mt-9 md:m-auto md:max-w-screen-sm">
       <input
         className="w-full border rounded-md px-3 py-2.5 pr-16 text-sm ring-blue-400 focus:outline-none focus:ring-1"
         type="text"
-        placeholder="choose username by typing here..."
+        placeholder="login/choose a username by typing here..."
         value={params.username}
-        onChange={(e) => params.setUsername(e.target.value)}
+        onChange={(e) => { params.setUsername(e.target.value);
+                            if((checkedFirstUser !== checkedExistingUser)&&
+                                (params.username !== ""))
+                              {toggleDisableSubmit(false)}
+                            }}
       />
       <Button
         className="group absolute rounded-r-md inset-y-0 right-0 flex w-14 h-full items-center justify-center"
         type="text"
-        onClick={() => params.setNoteEnabled((c) => !c)}
+        onClick={ handlerOnCreateUser }
+        disabled={submitDisabled}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -41,5 +92,34 @@ export default function CreateUser({params}: PageProps){
         </svg>
       </Button>
     </div>
+    <div className="mx-4 md:m-auto md:max-w-screen-sm">
+      <Checkbox
+        className="text-zinc-400"
+        checked={checkedFirstUser}
+        onChange={ () => { toggleFirstUser((c) => !c);
+                            if(params.username === "")
+                              {toggleDisableSubmit(true)}
+                            else
+                              {toggleDisableSubmit((c) => !c);}
+                            }}
+      >
+        first time user
+      </Checkbox>
+
+      <Checkbox
+        className="text-zinc-400"
+        checked={checkedExistingUser}
+        onChange={ () => { toggleExistingUser((c) => !c);
+                            if(params.username === "")
+                              {toggleDisableSubmit(true)}
+                            else
+                              {toggleDisableSubmit((c) => !c);}
+                          }}
+      >
+        existing user
+      </Checkbox>
+      {error && <span className="text-red-400 text-sm">(user not found)</span>}
+    </div>
+    </>
   )
 }

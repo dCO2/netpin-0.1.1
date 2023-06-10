@@ -5,12 +5,15 @@ import Instruction from "./instruction/page"
 import CreateUser from "./createuser/page"
 import CreateNote from "./createnote/page"
 import DisplayUser from './displayuser/page';
+import Usernotes from './usernotes/page';
 
 export default function Home() {
   const [InstructnEnabled, setInstructnEnabled] = useState(true);
   const [NoteEnabled, setNoteEnabled] = useState(true);
   const [SearchEnabled, toggleSearchEnabled] = useState(false);
   const [username, setUsername] = useState("");
+  const [userID, setUserID] = useState(0);
+  const [userNotes, setUserNotes] = useState([{}]);
 
   return (
     <div>
@@ -23,7 +26,10 @@ export default function Home() {
       {NoteEnabled &&
       <CreateUser params={{setNoteEnabled: setNoteEnabled,
                           setUsername: setUsername,
-                          username: username}}
+                          setUserID: setUserID,
+                          username: username,
+                          userNotes: userNotes,
+                          setUserNotes: setUserNotes}}
       />}
 
       {(!NoteEnabled) &&
@@ -32,7 +38,13 @@ export default function Home() {
       
       <CreateNote
         params={{toggleSearchEnabled: toggleSearchEnabled,
-                NoteEnabled: NoteEnabled}}
+                NoteEnabled: NoteEnabled,
+                userNotes: userNotes,
+                setUserNotes: setUserNotes,
+                userID: userID,}}
+      />
+
+      <Usernotes params={{userNotes: userNotes}}
       />
     </div>
 

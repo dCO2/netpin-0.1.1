@@ -10,7 +10,7 @@ function classNames(...classes: any) {
 
 interface PageProps {
   params: {
-    setInstructnEnabled: Dispatch<SetStateAction<boolean>>;
+    setInstructnEnabled: Dispatch<SetStateAction<boolean>> | null;
   }
 }
 

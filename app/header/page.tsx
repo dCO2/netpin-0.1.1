@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction } from "react";
 
 interface PageProps {
   params: {
-    setInstructnEnabled: Dispatch<SetStateAction<boolean>>;
+    setInstructnEnabled: Dispatch<SetStateAction<boolean>> | VoidFunction;
     SearchEnabled: boolean;
   }
 }

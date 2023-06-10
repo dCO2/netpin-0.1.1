@@ -1,7 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Logo(){
   return(
+    <Link href="/">
     <Image
       src="/netpin4.png"
       alt="NetPin Logo"
@@ -9,5 +11,6 @@ export default function Logo(){
       height={30}
       priority
     />
+    </Link>
   )
 }
