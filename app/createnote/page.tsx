@@ -9,13 +9,10 @@ const {TextArea} = Input;
 interface PageProps {
   params: { 
     toggleSearchEnabled: Dispatch<SetStateAction<boolean>>;
-    // setUserID: Dispatch<SetStateAction<number>>;
     userID: number;
     NoteEnabled: boolean;
     userNotes: Array<object>;
     setUserNotes: Dispatch<SetStateAction<Array<object>>>;
-    // userData: object;
-    // setUserData: Dispatch<SetStateAction<object>>;
   };
 }
 
@@ -53,11 +50,6 @@ export default function CreateNote({params}: PageProps){
     });
 
     const newNote  = await response.json()
-    // console.log(newNote)
-
-    // if(params.userNotes != [{}]){
-
-    // }
 
     params.setUserNotes([...params.userNotes, newNote]);
   

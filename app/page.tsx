@@ -47,7 +47,5 @@ export default function Home() {
       <Usernotes params={{userNotes: userNotes}}
       />
     </div>
-
-    // <ListOfNotes/>
   )
 }

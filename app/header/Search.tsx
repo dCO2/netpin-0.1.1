@@ -14,7 +14,6 @@ export default function Search_({params}: PageProps) {
   const [query, setQuery] = useState("");
 
   async function onSearch() {
-    // e.preventDefault();
     setQuery("");
   }
 

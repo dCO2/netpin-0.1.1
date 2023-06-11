@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 import Instruction from '@/app/instruction/page';
-// import Header from '@/app/header/page';
 
 const prisma = new PrismaClient()
 

@@ -8,9 +8,6 @@ export default function Info() {
       >
         <InformationCircleIcon className="h-7 w-7"/>
       </div>
-      {/* <aside>
-        <h2>How to use netpin</h2>
-      </aside> */}
     </div>
   );
 }
