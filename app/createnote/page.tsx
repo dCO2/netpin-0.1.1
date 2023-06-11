@@ -32,7 +32,7 @@ export default function CreateNote({params}: PageProps){
   }
 
   const handlerOnCreateNote = async () => {
-    const response = await fetch('/api/createnote', {
+    const response = await fetch('/.netlify/functions/createnote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
