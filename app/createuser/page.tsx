@@ -22,7 +22,7 @@ export default function CreateUser({params}: PageProps){
   const handlerOnCreateUser = async () => {
 
     if(checkedFirstUser === true){
-      const response = await fetch('/.netlify/functions/createuser', {
+      const response = await fetch('/api/createuser', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export default function CreateUser({params}: PageProps){
     
       params.setNoteEnabled((c) => !c);
     }else if(checkedExistingUser === true){
-      const response = await fetch('/.netlify/functions/getuser', {
+      const response = await fetch('/api/getuser', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
