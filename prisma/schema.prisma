@@ -6,12 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgres"
+  provider = "cockroachdb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  uid       Int       @id @default(autoincrement())
+  uid       Int       @id @default(sequence())
   name      String    @unique
   createdAt DateTime  @default(now())
   expiresAt DateTime?
@@ -19,7 +19,7 @@ model User {
 }
 
 model Note {
-  nid       Int       @id @default(autoincrement())
+  nid       Int       @id @default(sequence())
   rid       Int
   link      String    @unique
   createdAt DateTime  @default(now())
