@@ -2,7 +2,7 @@
 
 Netpin is a mini-project built with [Next.js](https://nextjs.org/), TailwindCSS, Prisma, Ant, & Netlify. Go ahead and select a username, create notes and save them to the cloud. Access & share your notes through a link made for you!  
 
-### For the Devs:
+### To Build:
 First, run the development server:
 
 ```bash
