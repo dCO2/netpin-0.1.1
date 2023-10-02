@@ -57,9 +57,9 @@ export default function CreateUser({params}: PageProps){
 
   return(
     <>
-    <div className="relative mt-4 mx-4 md:mt-9 md:m-auto md:max-w-screen-sm">
+    <div className="relative mt-4 mx-4 md:mt-5 md:m-auto md:max-w-md">
       <input
-        className="w-full border rounded-md px-3 py-2.5 pr-16 text-sm ring-blue-400 focus:outline-none focus:ring-1"
+        className="w-full border border-black rounded-md px-3 py-2.5 pr-16 text-sm ring-blue-400 focus:outline-none focus:ring-1"
         type="text"
         placeholder="login or choose a username..."
         value={params.username}
@@ -91,7 +91,7 @@ export default function CreateUser({params}: PageProps){
         </svg>
       </Button>
     </div>
-    <div className="mx-4 md:m-auto md:max-w-screen-sm">
+    <div className="mx-4 md:m-auto md:max-w-md">
       <Checkbox
         className="text-zinc-400"
         checked={checkedFirstUser}

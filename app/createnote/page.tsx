@@ -60,13 +60,13 @@ export default function CreateNote({params}: PageProps){
 
 
   return(
-    <div className="flex flex-col mx-4 mt-4 p-2 text-lg border shadow rounded-md md:mt-4 md:m-auto md:max-w-screen-md">
+    <div className="flex flex-col mx-4 mt-4 p-2 text-lg border-solid border border-black shadow rounded-md md:mt-4 md:m-auto md:max-w-screen-md">
       <TextArea
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="title..."
         bordered={false}
-        className="px-0 text-base md:text-lg"
+        className="px-0 text-lg md:text-xl"
         disabled={params.NoteEnabled}
         autoSize
       />
@@ -75,7 +75,7 @@ export default function CreateNote({params}: PageProps){
         onChange={(e) => setContent(e.target.value)}
         placeholder="take a note..."
         bordered={false}
-        className="px-0 text-base md:text-sm"
+        className="px-0 text-lg md:text-xl"
         disabled={params.NoteEnabled}
         autoSize={{ minRows: 5, maxRows: 15 }}
       />
